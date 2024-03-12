@@ -6,6 +6,7 @@ import StartPageComponent from './app/start/start-page.component.tsx'
 import TemplateSyntaxPage from './app/template-syntax/template-syntax.page.tsx'
 import CustomerIndexComponent from './app/customer/customer-index.component.tsx'
 import CustomerListComponent from './app/customer/views/customer-list.component.tsx'
+import CustomerEditComponent from './app/customer/views/customer-edit.component.tsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <CustomerListComponent/>
+      },
+      {
+        path: 'edit/:id',
+        element: <CustomerEditComponent/>
       }
     ]
   },

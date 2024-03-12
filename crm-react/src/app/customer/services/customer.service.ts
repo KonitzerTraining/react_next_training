@@ -12,6 +12,12 @@ export async function deleteById(id : number) {
     return await response.json();
 }
 
+export async function getById(id ?: string) {
+    const response = await fetch(url + '/' + id);
+    return await response.json();
+}
+
+
 export async function filter(value: string) {
     // http://localhost:1337/api/customers?filters[name][$contains]=Ti
     console.log(value);

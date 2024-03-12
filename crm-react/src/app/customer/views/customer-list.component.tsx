@@ -40,7 +40,6 @@ export default function CustomerListComponent() {
         filterCustomers();
     }, [searchExpression]); // }, [searchExpression]); 
 
-
     return (
         <>
             <h2>Customer List Component</h2>
