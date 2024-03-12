@@ -1,4 +1,5 @@
-export default function CustomerTableComponent({customers}: any) {
+import type { Customer } from "../model/customer"
+export default function CustomerTableComponent({ customers }: { customers: Customer[] }) {
 
     return (
         <>
@@ -12,7 +13,7 @@ export default function CustomerTableComponent({customers}: any) {
                     </tr>
                 </thead>
                 <tbody>
-                    {customers.map((customer: any) => {
+                    {customers.map((customer: Customer) => {
                         return (
                             <tr key={customer.id}>
                                 <td>{customer.id}</td>
