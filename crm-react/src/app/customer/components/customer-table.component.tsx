@@ -1,5 +1,5 @@
-export default function CustomerTableComponent({ customers }: any) {
-    console.log(customers);
+export default function CustomerTableComponent(props: any) {
+    console.log(props);
     return (
         <>
             <table className="table-auto">
@@ -12,13 +12,17 @@ export default function CustomerTableComponent({ customers }: any) {
                     </tr>
                 </thead>
                 <tbody>
-                    {customers.map((customer: any) => {
+                    {props.customers.map((customer: any) => {
                         return (
                             <tr key={customer.id}>
                                 <td>{customer.id}</td>
                                 <td>{customer.attributes.name}</td>
                                 <td>{customer.attributes.volume}</td>
-                                <td></td>
+                                <td>
+                                    <button onClick={() => {
+                                        props.delete(customer.id);
+                                    }}>Delete</button>
+                                </td>
                             </tr>
                         )
                     })}
