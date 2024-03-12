@@ -1,6 +1,5 @@
-import type { Customer } from "../model/customer"
-export default function CustomerTableComponent({ customers }: { customers: Customer[] }) {
-
+export default function CustomerTableComponent({ customers }: any) {
+    console.log(customers);
     return (
         <>
             <table className="table-auto">
@@ -13,12 +12,12 @@ export default function CustomerTableComponent({ customers }: { customers: Custo
                     </tr>
                 </thead>
                 <tbody>
-                    {customers.map((customer: Customer) => {
+                    {customers.map((customer: any) => {
                         return (
                             <tr key={customer.id}>
                                 <td>{customer.id}</td>
-                                <td>{customer.name}</td>
-                                <td>{customer.volume}</td>
+                                <td>{customer.attributes.name}</td>
+                                <td>{customer.attributes.volume}</td>
                                 <td></td>
                             </tr>
                         )
