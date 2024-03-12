@@ -1,3 +1,5 @@
+import ListItem from "./components/list-item.component";
+
 export default function TemplateSyntaxPage() {
 
     const info: string = 'Text';
@@ -57,7 +59,8 @@ export default function TemplateSyntaxPage() {
             <ul>
                 {list.map((listItem: string) => {
                     return (
-                        <li key={listItem}>{listItem}</li>
+                        // <li key={listItem}>{listItem}</li>
+                        <ListItem key={listItem} item={listItem}></ListItem>
                     )
                 })}
             </ul>
@@ -73,3 +76,4 @@ export default function TemplateSyntaxPage() {
         </>
     )
 }
+
