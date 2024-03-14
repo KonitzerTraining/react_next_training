@@ -33,11 +33,7 @@ const register = async (formData: any) => {
       } else {
         console.error('Failed to register');
       }
-    
 }
-
-
-
 
 export default function RegisterPage() {
     return (
