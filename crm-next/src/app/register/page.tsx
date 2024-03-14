@@ -1,7 +1,42 @@
+import { hash } from 'bcrypt';
+
+export async function hashPassword(password: string) {
+    const hashedPassword = await hash(password, 12);
+    return hashedPassword;
+  }
+
 const register = async (formData: any) => {
     'use server'
-    console.log(formData.get('password'));
+    const hashedPassword = await hashPassword(formData.get('password'));
+
+    const newProfile = {
+        "data": {
+            "name": formData.get('name'),
+            "email": formData.get('email'),
+            "password": hashedPassword
+        }
+      }
+    
+      console.log(newProfile);
+
+      const response = await fetch('http://localhost:1337/api/profiles', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newProfile),
+      });
+    
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        console.error('Failed to register');
+      }
+    
 }
+
+
 
 
 export default function RegisterPage() {
