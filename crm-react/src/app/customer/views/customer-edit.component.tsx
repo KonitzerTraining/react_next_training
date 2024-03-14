@@ -22,6 +22,7 @@ export default function CustomerEditComponent() {
         event.preventDefault();
         console.log(customer);
     }
+    
     return (
         <>
             <h2>Edit Customer with ID {id}</h2>

@@ -1,27 +1,24 @@
-export default function CustomerTableComponent(props: any) {
+export default function CustomerTable(props: any) {
     console.log(props);
     return (
         <>
-            <table className="table-auto">
+            <table className="w-full my-4 border-neutral-400">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Volume</th>
-                        <th></th>
+                    <tr className="align-bottom">
+                        <th className="text-left">#</th>
+                        <th className="text-left">Name</th>
+                        <th className="text-left">Volume</th>
+                        <th className="text-left"></th>
                     </tr>
                 </thead> 
                 <tbody>
                     {props.customers.map((customer: any) => {
                         return (
-                            <tr key={customer.id}>
+                            <tr className="border-b border-1" key={customer.id}>
                                 <td>{customer.id}</td>
                                 <td>{customer.attributes.name}</td>
-                                <td>{customer.attributes.volume}</td>
+                                <td className="text-right">{customer.attributes.volume}</td>
                                 <td>
-                                    <button onClick={() => {
-                                        props.delete(customer.id);
-                                    }}>Delete</button>
                                 </td>
                             </tr>
                         )
