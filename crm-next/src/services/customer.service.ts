@@ -71,8 +71,8 @@ export const customerEditHandler = async (id: string, formData: FormData) => {
     };
     console.log(customer);
 
-  /*   const res = await fetch(url, {
-        method: 'POST',
+     const res = await fetch(`${url}/${id}`, {
+        method: 'PUT',
         headers: {
             "Content-Type": "application/json",
         },
@@ -83,6 +83,6 @@ export const customerEditHandler = async (id: string, formData: FormData) => {
     console.log(resObj);
     revalidatePath('/dashboard');
     redirect('/dashboard');
- */
+ 
 }
 
