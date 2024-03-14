@@ -45,7 +45,6 @@ export const customerNewHandler = async (formData: FormData) => {
     };
     console.log(customer);
 
-
     const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -58,5 +57,32 @@ export const customerNewHandler = async (formData: FormData) => {
     console.log(resObj);
     revalidatePath('/dashboard');
     redirect('/dashboard');
-
 }
+
+export const customerEditHandler = async (id: string, formData: FormData) => {
+    'use server'
+
+    console.log(id);
+    const customer = {
+        data: {
+            name: formData.get('name'),
+            volume: +(formData.get('volume') as string),
+        }
+    };
+    console.log(customer);
+
+  /*   const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(customer),
+    });
+
+    const resObj = await res.json();
+    console.log(resObj);
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
+ */
+}
+

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CustomerTable(props: any) {
     console.log(props);
     return (
@@ -18,7 +20,8 @@ export default function CustomerTable(props: any) {
                                 <td>{customer.id}</td>
                                 <td>{customer.attributes.name}</td>
                                 <td className="text-right">{customer.attributes.volume}</td>
-                                <td>
+                                <td className="text-right">
+                                    <Link href={'/dashboard/' + customer.id + '/edit'}><button className="p-1 bg-blue-300 text-white rounded">Edit</button></Link>
                                 </td>
                             </tr>
                         )
