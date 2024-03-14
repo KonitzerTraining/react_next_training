@@ -4,6 +4,19 @@ import { redirect } from "next/navigation";
 
 const url = 'http://localhost:1337/api/customers';
 
+export const deleteById = async (id: string) => {
+    try {
+        const res = await fetch(`${url}/${id}`, { 
+          method: 'DELETE',
+        });
+        const resObj = await res.json();
+        return resObj.data;
+    } catch (error: any) {
+        console.log('Fehler' + error.message);
+    }
+}
+
+
 export const getById = async (id: string) => {
     try {
         const res = await fetch(`${url}/${id}`, {

@@ -21,6 +21,9 @@ export default function Navigation() {
             <NavLink href="/help">
               Help
             </NavLink>
+            <NavLink href="/register">
+              Register
+            </NavLink>
           </ul>
         </nav>
       </header>

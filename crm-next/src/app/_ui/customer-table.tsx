@@ -20,7 +20,8 @@ export default function CustomerTable(props: any) {
                                 <td>{customer.id}</td>
                                 <td>{customer.attributes.name}</td>
                                 <td className="text-right">{customer.attributes.volume}</td>
-                                <td className="text-right">
+                                <td className="text-right p-1">
+                                    <Link href={'/dashboard/' + customer.id + '/delete'}><button className="p-1 bg-red-700 text-white rounded mr-2">Delete</button></Link>
                                     <Link href={'/dashboard/' + customer.id + '/edit'}><button className="p-1 bg-blue-300 text-white rounded">Edit</button></Link>
                                 </td>
                             </tr>
