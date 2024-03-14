@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "./_ui/navigation";
+import SessionProvider from "@/components/SessionProvider";
+import { getServerSession } from "next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,16 +13,20 @@ export const metadata: Metadata = {
   keywords: "React Next",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const session = await getServerSession();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navigation></Navigation>
-        <main className="container mx-auto my-8 px-4">{children}</main>
+        <SessionProvider session={session}>
+          <Navigation></Navigation>
+          <main className="container mx-auto my-8 px-4">{children}</main>
+        </SessionProvider>
       </body>
     </html>
   );

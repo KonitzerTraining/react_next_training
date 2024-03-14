@@ -1,14 +1,12 @@
-import Link from "next/link";
-import classes from './navigation.module.css'
 import NavLink from "./nav-link";
-
+import SignInButton from "./signin-button";
 export default function Navigation() {
 
   return (
     <>
       <header className="my-4">
         <nav>
-          <ul className="list-none">
+          <ul className="list-none inline">
             <NavLink href="/start">
               Start
             </NavLink>
@@ -25,6 +23,8 @@ export default function Navigation() {
               Register
             </NavLink>
           </ul>
+
+          <SignInButton></SignInButton>
         </nav>
       </header>
     </>

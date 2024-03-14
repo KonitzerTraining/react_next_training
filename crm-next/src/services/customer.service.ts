@@ -16,7 +16,6 @@ export const deleteById = async (id: string) => {
     }
 }
 
-
 export const getById = async (id: string) => {
     try {
         const res = await fetch(`${url}/${id}`, {

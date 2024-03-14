@@ -1,10 +1,22 @@
+
 import Link from "next/link";
 import CustomerTable from "../_ui/customer-table";
 import * as customerService from "../../services/customer.service";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+
 
 export default async function CustomersPage() {
     const customers = await customerService.getAllCustomers();
     console.log('Customers');
+
+    const session = await getServerSession();
+    
+    console.log({session});
+    if(session === null) {
+        redirect('/api/auth/signin');
+    }
 
     return (
         <>

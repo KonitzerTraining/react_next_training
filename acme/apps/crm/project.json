@@ -1,0 +1,8 @@
+{
+  "name": "crm",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/crm",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
